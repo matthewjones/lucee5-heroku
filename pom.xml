@@ -3,19 +3,18 @@
   <modelVersion>4.0.0</modelVersion>
   <groupId>lucee.heroku</groupId>
   <artifactId>lucee.heroku</artifactId>
-  <version>1.5.1</version>
+  <version>1.9.0</version>
   <name>Lucee Heroku Application Template</name>
   <packaging>pom</packaging>
 
   <properties>
-    <lucee.version>5.1.0.34</lucee.version>
-    <mysqlconnector.version>6.0.5</mysqlconnector.version>
-    <tomcatrunner.version>8.5.5.0</tomcatrunner.version>
-    <versioneye.version>3.11.0</versioneye.version>
-    <mvnclean.version>3.0.0</mvnclean.version>
-    <mvndep.version>2.10</mvndep.version>
+    <lucee.version>5.3.7.47</lucee.version>
+    <mysqlconnector.version>8.0.20</mysqlconnector.version>
+    <webapprunner.version>9.0.27.1</webapprunner.version>
+    <mvnclean.version>3.1.0</mvnclean.version>
+    <mvndep.version>3.1.2</mvndep.version>
     <tuckeyurl.version>4.0.4</tuckeyurl.version>
-    <apachefelix.version>4.2.1</apachefelix.version>
+    <apachefelix.version>6.0.3</apachefelix.version>
   </properties>
 
   <dependencies>
@@ -28,26 +27,8 @@
 
   <repositories>
     <repository>
-      <id>oss-sonatype</id>
-      <name>oss-sonatype</name>
-      <url>https://oss.sonatype.org/content/repositories/snapshots/</url>
-      <snapshots>
-        <enabled>true</enabled>
-      </snapshots>
-    </repository>
-    <repository>
       <id>central</id>
-      <url>http://repo1.maven.org/maven2</url>
-      <releases>
-        <enabled>true</enabled>
-      </releases>
-      <snapshots>
-        <enabled>true</enabled>
-      </snapshots>
-    </repository>
-    <repository>
-      <id>cfmlprojects</id>
-      <url>http://cfmlprojects.org/artifacts</url>
+      <url>https://repo1.maven.org/maven2</url>
       <releases>
         <enabled>true</enabled>
       </releases>
@@ -61,7 +42,7 @@
     <pluginRepository>
       <id>central</id>
       <name>Maven Plugin Repository</name>
-      <url>http://repo1.maven.org/maven2</url>
+      <url>https://repo1.maven.org/maven2</url>
       <layout>default</layout>
       <snapshots>
         <enabled>false</enabled>
@@ -74,24 +55,6 @@
 
   <build>
     <plugins>
-      <plugin>
-        <groupId>com.versioneye</groupId>
-        <artifactId>versioneye-maven-plugin</artifactId>
-        <version>${versioneye.version}</version>
-        <executions>
-          <execution>
-            <phase>install</phase>
-            <goals>
-              <goal>update</goal>
-            </goals>
-          </execution>
-        </executions>
-        <configuration>
-          <apiKey>6c98055bd75fdb10f5e0</apiKey>
-          <projectId>57fcb9c89907da004067f78c</projectId>
-        </configuration>
-      </plugin>
-
       <plugin>
         <artifactId>maven-clean-plugin</artifactId>
         <version>${mvnclean.version}</version>
@@ -139,7 +102,7 @@
                 <artifactItem>
                   <groupId>com.github.jsimone</groupId>
                   <artifactId>webapp-runner</artifactId>
-                  <version>${tomcatrunner.version}</version>
+                  <version>${webapprunner.version}</version>
                   <destFileName>webapp-runner.jar</destFileName>
                   <overWrite>false</overWrite>
                   <outputDirectory>${project.build.directory}</outputDirectory>
@@ -200,7 +163,7 @@
 
       <plugin>
         <artifactId>maven-antrun-plugin</artifactId>
-        <version>1.8</version>
+        <version>3.0.0</version>
         <executions>
           <execution>
             <phase>generate-sources</phase>
